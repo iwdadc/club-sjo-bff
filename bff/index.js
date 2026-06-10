@@ -5,7 +5,8 @@ import cors       from 'cors'
 import morgan     from 'morgan'
 import dotenv     from 'dotenv'
 import { conectarDB } from './src/config/db.js'
-
+import authRoutes from './src/routes/authRoutes.js'
+import inscripcionRoutes from './src/routes/inscripcionRoutes.js'
 dotenv.config()
 
 const app  = express()
@@ -16,6 +17,9 @@ app.use(cors({ origin: 'http://localhost:5173' }))
 app.use(express.json())
 app.use(morgan('dev'))
 
+// Rutas
+app.use('/api/auth', authRoutes)
+app.use('/api/inscripciones', inscripcionRoutes)
 // Ruta de health check
 app.get('/health', (req, res) => {
     res.json({ status: 'ok', servicio: 'BFF Club San José Obrero' })
