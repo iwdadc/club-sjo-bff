@@ -1,10 +1,7 @@
 // inscripcionRoutes.js - Rutas de inscripciones
 
 import { Router } from "express"
-import {listarInscripciones,
-  nuevaInscripcion,
-  cambiarEstado,
-} from '../controllers/inscripcionController.js'
+import {listarInscripciones, nuevaInscripcion, cambiarEstado } from '../controllers/inscripcionController.js'
 import { verificarToken, verificarRol } from '../middlewares/authMiddleware.js'
 
 const router = Router()
